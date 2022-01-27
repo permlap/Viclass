@@ -1,0 +1,48 @@
+.container2{
+    background-color: rgb(255, 255, 255);
+    margin-top: 2vw;
+    
+}
+
+.blocklist{
+    display: flex;
+    flex-direction: column;
+    
+    
+    width: 13vw;
+    height: 8vw;
+    background: rgba(236, 184, 184, 0.3);
+    border-radius: 30px;
+    transition: all 150ms ease-in-out;
+
+}
+.blocklist:hover{
+    background: rgba(236, 184, 184, 1);
+}
+.blocklist >a{
+    text-decoration: none;
+    text-align: center;
+    color: #041562;
+    font-size: 1.2vw;
+   
+    font-weight: 700;
+}
+.blocklist >img{
+    width: 13vw;
+    max-height: 6vw;
+}
+.blocklistCon{
+    margin-left: 5vw;
+    justify-content: space-between;
+}
+@media screen and (max-width: 550px){
+    .container2{
+        display: none;
+    }
+   
+}
+@media screen and (max-width: 550px){
+    .blocklist{
+        display: none;
+    }
+}
