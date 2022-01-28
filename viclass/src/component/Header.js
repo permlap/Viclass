@@ -2,6 +2,7 @@ import "./Header.css"
 import React from 'react';
 import HeaderList from "./HeaderList";
 import DataHeader from "./DataHeader"
+import { FiChevronDown } from "react-icons/fi";
 function Header() {
   const showItem = DataHeader.map((list) =>{
     return(
@@ -18,9 +19,11 @@ function Header() {
       <div className="container">
             <img src="/image/headBackground.png"></img>
             <div className="Topic">
+              
                 <div className="HeadTopic">Viclass room</div>
                 <div className="line"></div>
-                <div className="TopicDetail">Join us to create the new era of learning</div>
+                <div className="TopicDetail">Join us to create the new era of learning </div>
+                <div className="TopicDetailNarrow drop-shadow-md  mt-6 ml-28  animate-bounce  "><a href="#"> <FiChevronDown/></a></div>
             </div>
             
       </div>

@@ -30,7 +30,7 @@ margin: 0px;
     
 
 
-    left: 60vw;
+    left: 62vw;
     top: 15vw;
     font-style: normal;
     font-weight: 800;
@@ -42,7 +42,7 @@ margin: 0px;
 .line{
 
 position: absolute;
-width: 25vw;
+width: 40vw;
 height: 0px;
 left: 60vw;
 top: 21vw;
@@ -60,9 +60,23 @@ top: 22vw;
 
 font-style: normal;
 font-weight: normal;
-font-size: 1.5vw;
+font-size: 1.8vw;
 line-height: 1.5vw;
 
+color: #041562;
+
+}
+.TopicDetailNarrow{
+    position: absolute;
+
+left: 63vw;
+top: 22vw;
+
+font-style: normal;
+font-weight: normal;
+font-size: 5vw;
+line-height: 1.5vw;
+font-weight: 800;
 color: #041562;
 
 
