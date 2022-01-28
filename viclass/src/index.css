@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.Superhight{
+    height: 60rem;
+}
+.width52{
+    width:  35.563rem;
+}
+.hight51{
+    height: 51.438rem;
+}
+.colorWhite{
+    background: rgb(255, 255, 255);
+}
+.colorYellow{
+    color: #FFC900;
+}
+.bgYellow{
+    background: #FFF89A;
+}
