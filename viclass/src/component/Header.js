@@ -1,8 +1,22 @@
 import "./Header.css"
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import HeaderList from "./HeaderList";
 import DataHeader from "./DataHeader"
 import { FiChevronDown } from "react-icons/fi";
+import Grow from '@mui/material/Grow';
+
+
+const icon = (
+  <div className="Topic absolute right-0  sm:top-32 md:top-30 lg:top-30 xl:top-40" >
+                <div className="HeadTopic ml-2">Viclass room</div>
+                <div className="line"></div>
+                <div className="TopicDetail ml-6">Join us to create the new era of learning </div>
+                <div className="TopicDetailNarrow drop-shadow-md  mt-6 ml-28  animate-bounce  "><a href="#"> <FiChevronDown/></a></div>
+            </div>
+);
+
+
+
 function Header() {
   const showItem = DataHeader.map((list) =>{
     return(
@@ -12,26 +26,29 @@ function Header() {
       />
     )
   })
-
+const [checked, setChecked] = useState(false);
+useEffect(() => {
+  setChecked(true);
+}, []);
   return (
      
-    <div>
-      <div className="container">
-            <img src="/image/headBackground.png"></img>
-            <div className="Topic">
-              
-                <div className="HeadTopic">Viclass room</div>
-                <div className="line"></div>
-                <div className="TopicDetail">Join us to create the new era of learning </div>
-                <div className="TopicDetailNarrow drop-shadow-md  mt-6 ml-28  animate-bounce  "><a href="#"> <FiChevronDown/></a></div>
-            </div>
-            
+    <div className="container">
+      <div>
+           
+      <Grow
+          in={checked}
+          style={{ transformOrigin: '0 0 0' }}
+          {...(checked ? { timeout: 1300 } : {})}
+        >
+          {icon}
+        </Grow>
+        <img className="headimage z-0" src="/image/Headimage.png"/> 
       </div>
-      <h2 class="font-bold text-left text-3xl">who are you in school?</h2>
+      <h2 class="font-bold text-left text-3xl ">who are you in school?</h2>
       <div class="flex flex-initial ml-20" className="ShowItem">
-        
-        {showItem}
+      {showItem}
         </div>
+        
     </div>
       
   )

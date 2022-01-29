@@ -20,4 +20,27 @@
 }
 .bgYellow{
     background: #FFF89A;
+
+}
+
+
+.Topic{
+    @apply text-5xl font-extrabold colorYellow mt-12
+}
+.ToppicDetail{
+    @apply text-xs  lg:text-2xl ml-8 mt-5 font-bold
+}
+.Detail{
+    @apply text-xs  lg:text-xl ml-8 mt-5 
+}
+.picture{
+
+position: absolute;
+width: 841px;
+height: 823px;
+left: 916px;
+top: 1116px;
+
+
+
 }

@@ -3,12 +3,13 @@ h2{
  color: #041562;
  margin-top: 5vw;
 }
-.container > img{
+.headimage{
 
 width: 100%;
 height: 36vw;
 left: 0px;
-margin: 0px;
+
+top: 0px;
 }
 .ShowItem{
     width: 100%;
@@ -18,16 +19,16 @@ margin: 0px;
 
 .container{
     position: relative;
-    
+  
 
    
 }
 .HeadTopic{
-    position: absolute;
+   
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    
+   
 
 
     left: 62vw;
@@ -41,7 +42,7 @@ margin: 0px;
 }
 .line{
 
-position: absolute;
+
 width: 40vw;
 height: 0px;
 left: 60vw;
@@ -53,10 +54,10 @@ border: 1px solid #FF0000;
 .TopicDetail{
     /* Join us to create the new era of learning */
 
-position: absolute;
 
+margin-top: 1vw;
 left: 62vw;
-top: 22vw;
+top: 25vw;
 
 font-style: normal;
 font-weight: normal;
@@ -67,7 +68,7 @@ color: #041562;
 
 }
 .TopicDetailNarrow{
-    position: absolute;
+  
 
 left: 63vw;
 top: 22vw;
@@ -81,53 +82,22 @@ color: #041562;
 
 
 }
-@media screen and (max-width: 550px){
+@media screen and (max-width: 650px){
     .container > img{
        display: none;
     }
     .HeadTopic{
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
+        display: none;
             
-        
-        
-            left: 20vw;
-            top: 40vw;
-            font-style: normal;
-            font-weight: 800;
-            font-size: 10vw;
-            line-height: 8vw;
-            color: #041562;  
-        
         }
     .line{
         
-        position: absolute;
-        width: 70vw;
-        height: 0px;
-        left: 18vw;
-        top: 50vw;
-        
-        border: 1px solid #FF0000;
-        
+       display: none;
         }
         .TopicDetail{
-            /* Join us to create the new era of learning */
-        
-        position: absolute;
-        
-        left: 25vw;
-        top: 55vw;
-        
-        font-style: normal;
-        font-weight: normal;
-        font-size: 3vw;
-        line-height: 1.5vw;
-        
-        color: #041562;
-        
-
+          display: none;
+}
+.TopicDetailNarrow{
+    display: none;
 }
 }
