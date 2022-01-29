@@ -1,6 +1,17 @@
 import React from 'react';
+import DataContact from './DataContact';
+import Contact from './Contact';
+
 
 function LearnMore() {
+    const ShowContact =DataContact.map((item) =>{
+        return (
+        <Contact
+            img ={item.img}
+            text ={item.text}
+        />
+        )
+    })
   return (
  
       <section >
@@ -11,7 +22,7 @@ function LearnMore() {
                     <li className='Detail lg:text-xl' >By exhibiting positive behavior, completing assignments, and reminding all works through application, students unlock real-life privileges, recognition to help themselves and their team and prepare themslef to hand in assigment without misinformation. Learning becomes a way to encourage students to advocate for one another and feel empowered in the classroom and in life.</li>              
                 </ul>
             
-            <img class="hidden md:block md:h-screen max-w-full max-h-full right-100  object-contain absolute" src='/image/studeentsLearnmore.png'/>
+            <img id='Leanmore' class="hidden md:block md:h-screen max-w-full max-h-full right-100  object-contain absolute" src='/image/studeentsLearnmore.png'/>
             </div>
             <div class="container BGYeloow  w-full h-96  md:h-96 relative lg:h-screen">
                 <ul class=" text-center absolute right-100 md:mt-16 lg:pb-10 md:ml-5 xl:p-10  z-10  mt-5  h-80 w-full md:w-96 lg:w-8/12 lg:h-fit md:mr-10 xl:w-3/6 xl:pt-0  colorWhite drop-shadow-lg px-5 rounded-3xl">
@@ -31,7 +42,7 @@ function LearnMore() {
             
             <img class="hidden md:block md:h-screen max-w-full max-h-full right-100  object-contain absolute" src='/image/parentLearnmore.png'/>
             </div>
-            <div class="container darkblue  w-full h-96  md:h-96 relative lg:h-screen">
+            <div id='ToVisit' class="container darkblue  w-full h-96  md:h-96 relative lg:h-screen">
                 <ul class=" text-center absolute right-100 md:mt-16 lg:pb-10 md:ml-5 xl:p-10  z-10  mt-5  h-80 w-full md:w-96 lg:w-8/12 lg:h-fit md:mr-10 xl:w-3/6 xl:pt-0  colorWhite drop-shadow-lg px-5 rounded-3xl">
                     <li class="Topic uppercase">School leaders</li>
                     <li className='ToppicDetail'>Manage behavior at scale across all your schools</li>
@@ -40,7 +51,9 @@ function LearnMore() {
             
             <img class="hidden md:block md:h-screen max-w-full max-h-full right-0  object-contain absolute" src='/image/SchoolLeaderLeanmore.png'/>
             </div>
-            
+            <div id='Contact' class="hidden BGYeloow md:flex  justify-center items-center">
+            {ShowContact}
+            </div>
       </section>
 
   )
