@@ -7,15 +7,17 @@ import Grow from '@mui/material/Grow';
 import { Link as Scroll } from 'react-scroll'
 
 
+
 const icon = (
-  <div className="Topic absolute right-0 top-16  sm:top-32 md:top-20 lg:top-32 xl:top-40" >
-                <div className="HeadTopic ml-2">Viclass room</div>
+  <div className="Topic absolute right-0 top-16  sm:top-32 md:top-22 lg:top-32 xl:top-40 bg-white/30 rounded-2xl" >
+                <div id="UP" className="HeadTopic ml-2 uppercase">Vclass room</div>
                 <div className="line"></div>
                 <div className="TopicDetail ml-6">Join us to create the new era of learning </div>
                 <div className="TopicDetailNarrow drop-shadow-md  mt-6 ml-28  animate-bounce  ">
                       <a href="#"> <Scroll to="ToVisit" smooth={true}><FiChevronDown/></Scroll>
                       </a>
                </div>
+               
             </div>
 );
 

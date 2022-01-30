@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { FiChevronsUp } from "react-icons/fi";
+import { Link as Scroll } from 'react-scroll'
 function About() {
   return (
     //   Hero section abtout
@@ -16,7 +17,7 @@ can keep tracking how are students' progress in each assignment. </li>
       </ul>
     </div>
     <img class="hidden md:block max-w-full max-h-full right-0  object-contain absolute"  src='/image/studentBG.png'/>
-    
+    <div class='fixed text-3xl Topic right-10 bottom-5 bg-white hover:text-red-600 active:bg-red-600/50 rounded-full z-50 ' ><Scroll to="UP" smooth={true}><FiChevronsUp/></Scroll></div>
     
 
    </section>
