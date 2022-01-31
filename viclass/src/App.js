@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import './App.css';
-import Header from './component/Header';
-import NavBar from './component/NavBar';
-import About from "./Main/About"
+import Header from './Hompage/component/Header';
+import NavBar from './Hompage/component/NavBar';
+import About from "./Hompage/Main/About"
 
-import LearnMore from './Main/LearnMore';
+import LearnMore from './Hompage/Main/LearnMore';
 
 function App() {
  
