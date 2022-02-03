@@ -31,7 +31,7 @@
 
 
 .Topic{
-    @apply text-5xl font-extrabold colorYellow mt-12
+    @apply text-5xl font-extrabold colorYellow mt-12 md:mt-5
 }
 .ToppicDetail{
     @apply text-xs  lg:text-2xl ml-8 mt-5 font-bold

@@ -2,6 +2,8 @@ import { FiPlay,FiMenu,FiX } from "react-icons/fi";
 import './NavBar.css';
 import React, { useState } from 'react';
 
+import { Link as Scroll } from 'react-scroll'
+
 function NavBar(){
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
@@ -14,14 +16,16 @@ function NavBar(){
              <div className="headerCon">
                  
                  <ul className={click ? "menu active" : "menu"}>
+                     
                      <li className="menuLink" onClick={closeMobileMenu}>
-                         <a href="#">About us</a>
+                         <Scroll to="about" smooth={true}><a href="#">About us</a></Scroll>
+                    </li>
+                 
+                    <li className="menuLink"onClick={closeMobileMenu}>
+                    <Scroll to="Leanmore" smooth={true}><a href="#">Learn more</a></Scroll>
                     </li>
                     <li className="menuLink"onClick={closeMobileMenu}>
-                         <a href="#">Learn more</a>
-                    </li>
-                    <li className="menuLink"onClick={closeMobileMenu}>
-                         <a href="#">Contact</a>
+                    <Scroll to="Contact" smooth={true}><a href="#">Contact</a></Scroll>
                     </li>
                      
                     </ul>
