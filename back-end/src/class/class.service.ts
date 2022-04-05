@@ -24,7 +24,7 @@ export class ClassService {
                 ...dto
             }
         })
-        return MyClass
+       
     }
     
 }
