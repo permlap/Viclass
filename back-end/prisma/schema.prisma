@@ -40,6 +40,7 @@ model Class {
   userId String
   user   User @relation(fields: [userId], references: [id])
 
+  students Student[]
   @@map("classes")
 }
 
@@ -53,7 +54,8 @@ model Student {
   
   numberId  String?
   
-  
+  classId String
+  class Class @relation(fields: [classId], references: [id])
   
   @@map("students")
 }

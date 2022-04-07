@@ -30,7 +30,7 @@ function NavBar(){
                      
                     </ul>
                     <div className="logo">
-                     <a href="#">Account login</a>
+                     <a href="/sign-in">Account login</a>
                      <img src="/image/login.png"></img>
                  </div>
                  <div className="mobileMenu" onClick={handleClick}>

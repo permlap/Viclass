@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsOptional, IsString } from "class-validator"
 
-export class CreateClassDto{
+export class EditMyClass{
 
   @IsString()
   @IsOptional()
