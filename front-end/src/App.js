@@ -3,11 +3,28 @@ import { BrowserRouter, Route , Routes } from "react-router-dom"
 import SignIn from "./Auth/SignIn";
 import Profile from "./Profile/Profile";
 import SignUp from "./Auth/SignUp";
+import './App.css';
 function App() {
+  const token = localStorage.getItem("access_token");
+  const noAccount = localStorage.getItem("noAccount");
+
+   if(noAccount){
+    return(
+      <SignUp/>
+    )
+  }else if(!token && !noAccount){
+    return(
+      <SignIn/>
+    )
+  }else if(!token){
+    return(
+      <SignIn/>
+    )
+  }
  
   return (
 
-    <div>
+    <div className="App">
       <BrowserRouter>
          <Routes>
            <Route path="/" element={<Hompage/>}/> 

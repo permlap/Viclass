@@ -73,6 +73,9 @@ import swal from 'sweetalert';
         }
     }
     
+    function handleClick(){
+      localStorage.setItem('noAccount', true);
+    }
   
     return (
       <ThemeProvider theme={theme}>
@@ -127,7 +130,7 @@ import swal from 'sweetalert';
               </Button>
               <Grid container>
                 <Grid item>
-                  <Link href="/sign-up" variant="body2">
+                  <Link href="/sign-up" onClick={handleClick} variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
