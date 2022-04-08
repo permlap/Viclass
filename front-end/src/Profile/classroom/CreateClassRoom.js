@@ -9,7 +9,7 @@ function CreateClassRoom() {
     const token = localStorage.getItem("access_token"); 
     const [GetMyClass, setGetMyClass] = useState(null);
     const [CreateClass, setCreateClass] = useState(false)
-   
+ 
 
 
  function handleClick(){
@@ -24,13 +24,19 @@ function CreateClassRoom() {
          }
        }).then((response)=>{
        setGetMyClass(response.data)   
-       console.log(GetMyClass)
+      
     })
 },[])
 
 if(!GetMyClass){
     return null
 }
+
+
+function handleClickToDelete(id){
+  console.log(id)
+}
+
 const Myclass = GetMyClass.map((list) =>{
 
   return(
@@ -39,7 +45,7 @@ const Myclass = GetMyClass.map((list) =>{
       createAt={list.createAt}
       classTitle={list.classTitle}
       classLevel={list.classLevel}
-      handleClick = {()=>handleClick(list.id)}
+      handleClick = {()=>handleClickToDelete(list.id)}
       />
   )
   })

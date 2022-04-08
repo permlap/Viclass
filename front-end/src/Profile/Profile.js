@@ -4,11 +4,15 @@ import AddUserInfo from './component/AddUserInfo'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import CreateClassRoom from './classroom/CreateClassRoom'
+import Hompage from '../Hompage/Main/Homepage'
 
 function Profile() {
   const token = localStorage.getItem("access_token")
   const [userData, setUserData] = useState(null)
   
+  if(!token){
+    window.location.href="/"
+  }
   
    useEffect(() =>{
 
@@ -32,7 +36,6 @@ function Profile() {
   
  
  
-
   return (
     <div>
       <Nevbar/>

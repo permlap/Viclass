@@ -8,19 +8,6 @@ function App() {
   const token = localStorage.getItem("access_token");
   const noAccount = localStorage.getItem("noAccount");
 
-   if(noAccount){
-    return(
-      <SignUp/>
-    )
-  }else if(!token && !noAccount){
-    return(
-      <SignIn/>
-    )
-  }else if(!token){
-    return(
-      <SignIn/>
-    )
-  }
  
   return (
 

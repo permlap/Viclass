@@ -1,9 +1,10 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect, useContext} from 'react'
 import axios from 'axios'
+
 function AddClassRoomInfo() {
 
 const token = localStorage.getItem("access_token")
-  
+const classContext = useContext() 
   const [classData,setclassData] = useState({
     classTitle:"",
     classLevel:"",
@@ -36,7 +37,7 @@ const token = localStorage.getItem("access_token")
     }
     ).then((response) =>{
       setclassData(response.data)
-      window.location.reload(false)
+      
      
     })
   }catch(err){
@@ -45,6 +46,7 @@ const token = localStorage.getItem("access_token")
   
   }
   return (
+    
     <div class="  relative top-72 ">
     <form  class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 absolute w-full">
       <div class="mb-4 ">
@@ -85,8 +87,10 @@ const token = localStorage.getItem("access_token")
         </button>
       </div>
     </form>
+    
    
   </div>
+
   )
 }
 
