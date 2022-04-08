@@ -89,7 +89,7 @@ import swal from 'sweetalert';
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <Avatar sx={{ m: 1, bgcolor: 'error.main' }}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
@@ -125,12 +125,14 @@ import swal from 'sweetalert';
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                color="error"
+        
               >
                 Sign In
               </Button>
               <Grid container>
                 <Grid item>
-                  <Link href="/sign-up" onClick={handleClick} variant="body2">
+                  <Link href="/sign-up" color="inherit" onClick={handleClick} variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>

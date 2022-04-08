@@ -9,6 +9,12 @@ function NavBar(){
     const handleClick = () => setClick(!click);
     console.log(click);
     const closeMobileMenu = () => setClick(false)
+    
+    function ClickToLogin(){
+        window.location.href='/sign-in'
+       
+    }
+
     return(
        
         <nav className="NavBar">
@@ -29,10 +35,12 @@ function NavBar(){
                     </li>
                      
                     </ul>
-                    <div className="logo">
-                     <a href="/sign-in">Account login</a>
+                    <button onClick={ClickToLogin}>
+                    <div className="logo hover:opacity-25">
+                     <a >Account login</a>
                      <img src="/image/login.png"></img>
-                 </div>
+                     </div>
+                 </button>
                  <div className="mobileMenu" onClick={handleClick}>
                  {click ? (
                             <FiX />

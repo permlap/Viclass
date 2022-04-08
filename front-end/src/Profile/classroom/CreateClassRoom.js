@@ -69,13 +69,13 @@ const Myclass = GetMyClass.map((list) =>{
 <div className='relative'>
     <div className='flex justify-start flex-wrap absolute top-20'>
         {/* blcok to create a class */}
-        <button onClick={handleClick} class="mt-10 ml-5 bg-blue-500 hover:bg-blue-700 text-5xl w-32  text-white font-bold py-2 px-4 rounded-xl">
+        <button onClick={handleClick} class="mt-16 ml-5 bg-blue-500 hover:bg-blue-700 text-5xl w-32 h-20  text-white font-bold py-2 px-4 rounded-xl">
              <div className='ml-5'><GrAdd/></div>
         </button>
     
         
        {Myclass}
-
+      
     </div>
     {CreateClass === true && <AddClassRoomInfo />}
 </div>
