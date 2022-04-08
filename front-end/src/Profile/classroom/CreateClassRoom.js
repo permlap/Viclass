@@ -9,8 +9,7 @@ function CreateClassRoom() {
     const token = localStorage.getItem("access_token"); 
     const [GetMyClass, setGetMyClass] = useState(null);
     const [CreateClass, setCreateClass] = useState(false)
- 
-
+  
 
  function handleClick(){
      setCreateClass(!CreateClass)
@@ -24,7 +23,7 @@ function CreateClassRoom() {
          }
        }).then((response)=>{
        setGetMyClass(response.data)   
-      
+      console.log(GetMyClass)
     })
 },[])
 
@@ -34,7 +33,21 @@ if(!GetMyClass){
 
 
 function handleClickToDelete(id){
-  console.log(id)
+  axios.delete(`http://localhost:3001/class/${id}`,{
+    headers:{
+      Authorization: `Bearer ${token}`
+    }
+  }).then((response)=>{
+    
+    axios.get("http://localhost:3001/class/my-classes",{
+      headers:{
+        Authorization: `Bearer ${token}`
+      }
+    }).then((response)=>{
+      setGetMyClass(response.data)
+    })
+  
+  })
 }
 
 const Myclass = GetMyClass.map((list) =>{
@@ -45,7 +58,7 @@ const Myclass = GetMyClass.map((list) =>{
       createAt={list.createAt}
       classTitle={list.classTitle}
       classLevel={list.classLevel}
-      handleClick = {()=>handleClickToDelete(list.id)}
+      handleClickToDelete = {()=>handleClickToDelete(list.id)}
       />
   )
   })
@@ -64,7 +77,7 @@ const Myclass = GetMyClass.map((list) =>{
        {Myclass}
 
     </div>
-    {CreateClass === true && <AddClassRoomInfo/>}
+    {CreateClass === true && <AddClassRoomInfo />}
 </div>
   )
 }

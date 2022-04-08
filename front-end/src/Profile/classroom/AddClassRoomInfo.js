@@ -1,10 +1,9 @@
-import React,{useState, useEffect, useContext} from 'react'
+import React,{useState, useEffect} from 'react'
 import axios from 'axios'
-
-function AddClassRoomInfo() {
+function AddClassRoomInfo({ onClick, count }) {
 
 const token = localStorage.getItem("access_token")
-const classContext = useContext() 
+  
   const [classData,setclassData] = useState({
     classTitle:"",
     classLevel:"",
@@ -20,9 +19,9 @@ const classContext = useContext()
     })
   }
 
- function handleClick(event){
+ function onClick(event){
     event.preventDefault()
-  
+
   try{
  axios.post("http://localhost:3001/class",
     {
@@ -37,8 +36,8 @@ const classContext = useContext()
     }
     ).then((response) =>{
       setclassData(response.data)
-      
-     
+      window.location.reload(false)
+ 
     })
   }catch(err){
 
@@ -46,7 +45,6 @@ const classContext = useContext()
   
   }
   return (
-    
     <div class="  relative top-72 ">
     <form  class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 absolute w-full">
       <div class="mb-4 ">
@@ -82,15 +80,13 @@ const classContext = useContext()
         
       </div>
       <div class="flex items-center justify-between">
-        <button onClick={handleClick} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+        <button onClick={onClick} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
           Create !
         </button>
       </div>
     </form>
-    
    
   </div>
-
   )
 }
 
