@@ -11,12 +11,22 @@ export class ClassService {
     constructor(private prisma:PrismaService){}
 
     async getMyclasses(userId:string){
-        const cards = await this.prisma.class.findMany({
+        const Myclasses = await this.prisma.class.findMany({
             where:{
                 userId
             }
         })
-        return cards
+        return Myclasses
+    }
+    
+    async getMyclassById(userId:string, classId:string){
+        const Myclass = await this.prisma.class.findFirst({
+            where:{
+                id: classId,
+                userId
+            }
+        })
+        return Myclass
     }
 
     async CreateMyClass(userId:string, dto:CreateClassDto){

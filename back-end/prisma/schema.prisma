@@ -22,8 +22,9 @@ model User {
   lastName  String?
   school    String?
 
+ 
  classes Class[]
-
+ 
   @@map("users")
  
 }

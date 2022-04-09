@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { UserModule } from './user/user.module';
 import { ClassModule } from './class/class.module';
+import { StudentModule } from './student/student.module';
 
 
 @Module({
@@ -12,7 +13,7 @@ import { ClassModule } from './class/class.module';
     isGlobal: true,
   })
   ,AuthModule
-  ,PrismaModule, UserModule, ClassModule
+  ,PrismaModule, UserModule, ClassModule, StudentModule
   ],
 })
 export class AppModule {}

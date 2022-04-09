@@ -15,13 +15,13 @@ export class ClassController {
         return this.service.getMyclasses(userId)
     }
 
-    @Get("my-class")
+    @Get("/:id")
     getMyclassById(
         @GetUser("id") userId:string,
         @Param("id", ParseUUIDPipe) classId:string
         )
         {
-        return
+        return this.service.getMyclassById(userId,classId)
     }
     
     @Post()
