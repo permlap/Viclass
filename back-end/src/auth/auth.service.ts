@@ -43,7 +43,7 @@ export class AuthService {
             throw new ForbiddenException("Cannot find this email","2222")
         }
 
-        const PWmatch = await argon.verify(user.hash, dto.password, )
+        const PWmatch = await argon.verify(user.hash, dto.password)
 
         if(!PWmatch){
             throw new ForbiddenException("Passwrod is incorrect","3333")

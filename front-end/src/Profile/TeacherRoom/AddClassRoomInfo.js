@@ -1,6 +1,6 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState} from 'react'
 import axios from 'axios'
-function AddClassRoomInfo({ onClick, count }) {
+function AddClassRoomInfo(prop) {
 
 const token = localStorage.getItem("access_token")
   
@@ -19,7 +19,7 @@ const token = localStorage.getItem("access_token")
     })
   }
 
- function onClick(event){
+ function ClickToSummit(event){
     event.preventDefault()
 
   try{
@@ -41,52 +41,44 @@ const token = localStorage.getItem("access_token")
     })
   }catch(err){
 
-  }
-  
-  }
-  return (
-    <div class="  relative top-72 ">
-    <form  class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 absolute w-1/4 ">
-      <div class="mb-4 ">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-          Class name
-        </label>
-        <input 
-        class="shadow appearance-none border rounded w-full py-2 px-3 
-        text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-        id="classTitle" 
-        type="text" 
-        name='classTitle' 
-        placeholder="what is your classroom's name"
-        value={classData.classTitle}
-        onChange={handleChange}
-        />
+  }}
 
-      </div>
-      <div class="mb-6">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-          Class level
-        </label>
-        <input class="shadow appearance-none border border-red-500 rounded 
-        w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none 
-        focus:shadow-outline" 
-        id="classLevel" 
-        type="text" 
-        name='classLevel' 
-        placeholder="What is your class level"
-        value={classData.classLevel}
-        onChange={handleChange}
-        />
-        
-      </div>
-      <div class="flex items-center justify-between">
-        <button onClick={onClick} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-          Create !
-        </button>
-      </div>
-    </form>
-   
-  </div>
+  function handleClick(){
+    prop.setOpen(!prop.setOpen)
+  }
+
+  return (
+    <div  class=" ml-96 mt-20 overflow-y-auto overflow-x-hidden fixed right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
+    <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+     
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      
+            <div class="flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
+                    Create your class
+                </h3>
+                <button type="button" onClick={handleClick} class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                </button>
+            </div>
+            <form class="px-6 pb-4 space-y-6 lg:px-8 sm:pb-6 xl:pb-8" action="#">
+            
+                <div>
+                    <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Class title</label>
+                    <input onChange={handleChange} value={classData.classTitle} type="text" name="classTitle" id="classTitle" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Ex: Math" required/>
+                </div>
+                <div>
+                    <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Class level</label>
+                    <input onChange={handleChange} value={classData.classLevel}  type="text" name="classLevel" id="classLevel" placeholder="Ex: 6/5" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required/>
+                </div>
+                <div class="flex justify-between">
+                </div>
+                <button onClick={ClickToSummit} type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create student</button>
+                
+            </form>
+        </div>
+    </div>
+</div>
   )
 }
 

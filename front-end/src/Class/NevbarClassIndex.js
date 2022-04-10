@@ -20,7 +20,7 @@ export default  function NevbarClassIndex() {
   const [classData,setClassData] =useState(null)
 
   
-  console.log(classId)
+
     useEffect(()=>{
    axios.get('http://localhost:3001/user/me', {
     headers: {

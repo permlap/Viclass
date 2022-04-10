@@ -22,7 +22,7 @@ model User {
   lastName  String?
   school    String?
 
- 
+ students Student[]
  classes Class[]
  
   @@map("users")
@@ -58,5 +58,7 @@ model Student {
   classId String
   class Class @relation(fields: [classId], references: [id])
   
+  userId String
+  user   User @relation(fields: [userId], references: [id])
   @@map("students")
 }

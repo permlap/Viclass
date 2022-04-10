@@ -3,17 +3,17 @@ import React, { useEffect, useState } from 'react'
 import { GrAdd } from "react-icons/gr";
 import AddClassRoomInfo from './AddClassRoomInfo';
 import RenderClassRoom from './RenderClassRoom';
-import NaveBar from "../../Class/NevbarClassIndex"
+
 
 function CreateClassRoom() {
     const token = localStorage.getItem("access_token"); 
     const [GetMyClass, setGetMyClass] = useState(null);
-    const [CreateClass, setCreateClass] = useState(false)
+    const [open, setOpen] = useState(false)
   
 
  function handleClick(){
-     setCreateClass(!CreateClass)
-     console.log(CreateClass)
+     setOpen(!open)
+     
  }
 
  useEffect(()=>{
@@ -33,12 +33,12 @@ if(!GetMyClass){
 
 
 function handleClickToDelete(id){
+  console.log(id)
   axios.delete(`http://localhost:3001/class/${id}`,{
     headers:{
       Authorization: `Bearer ${token}`
     }
   }).then((response)=>{
-    
     axios.get("http://localhost:3001/class/my-classes",{
       headers:{
         Authorization: `Bearer ${token}`
@@ -85,7 +85,7 @@ const Myclass = GetMyClass.map((list) =>{
                   {Myclass}
                   
                 </div>
-                {CreateClass === true && <AddClassRoomInfo />}
+                {open === true && <AddClassRoomInfo setOpen={setOpen}/>}
               </div>
             
   )
