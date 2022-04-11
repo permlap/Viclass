@@ -85,9 +85,9 @@ function StudentIndex() {
 
     
   return (
-    <ul className="z-20 top-36 absolute ml-10 flex flex-wrap">
-        <li className="h-40  ">
-            <button onClick={clickToCreateStudent} className="bg-yellow-300  w-32 h-32 rounded-full shadow-md border-4 hover:opacity-50 " type="button" data-modal-toggle="defaultModal">
+    <ul className="z-20 mt-20 ml-10 gap-9 flex padding flex-wrap ">
+        <li className="mt-5 ">
+            <button onClick={clickToCreateStudent} className="bg-yellow-300  w-32 h-32 rounded-full shadow-md border-4 hover:opacity-50">
             <AddIcon sx={{ fontSize: 80 }}/> 
             </button>
             <div className="text-center mt-1"> 

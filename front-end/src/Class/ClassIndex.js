@@ -2,12 +2,15 @@ import React from 'react'
 import NevbarClassIndex from './NevbarClassIndex'
 import StudentIndex from './student/StudentIndex'
 function ClassIndex() {
+
+ 
   return (
-    <div >
+    <div className='h-full'>
         <NevbarClassIndex/>
-        <div className="bg-slate-400 w-full h-full absolute ">
-              <div className="bg-zinc-50  z-10 top-40 w-5/6 h-full ml-32">
+        <div className="bg-slate-400 w-full  ">
+              <div className="z-10 w-5/6 ml-32 bg-zinc-200">
                 <StudentIndex/>
+               
               </div>
         </div>
     </div>
