@@ -6,11 +6,9 @@ import SignUp from "./Auth/SignUp";
 import './App.css';
 import ClassIndex from "./Class/ClassIndex";
 function App() {
-  const token = localStorage.getItem("access_token");
-  const noAccount = localStorage.getItem("noAccount");
 
-  
- 
+
+
   return (
 
     <div className="App">

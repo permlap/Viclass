@@ -4,12 +4,14 @@ import NavBar from '../component/NavBar';
 import Header from '../component/Header';
 import LearnMore from './LearnMore';
 function Hompage() {
+
   return (
       <div>
           <NavBar/>
           <Header/>
           <About/>
           <LearnMore/>
+       
       </div>
   )
 }
