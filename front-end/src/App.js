@@ -5,12 +5,14 @@ import Profile from "./Profile/ProfileIndex";
 import SignUp from "./Auth/SignUp";
 import './App.css';
 import ClassIndex from "./Class/ClassIndex";
+import {Provider} from "react-redux"
+import store from "./Redux/store";
 function App() {
 
 
 
   return (
-
+<Provider store={store}>
     <div className="App">
       <BrowserRouter>
          <Routes>
@@ -23,6 +25,7 @@ function App() {
      
       </BrowserRouter>
     </div>
+</Provider>
     
    
   );
