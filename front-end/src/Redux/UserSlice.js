@@ -3,13 +3,13 @@ import { createSlice } from '@reduxjs/toolkit'
 const userSlice = createSlice({
     name: "user",
     initialState:{
-        firstName: "Permlap",
-        lastName: "Phola"
+        firstName: "----",
+        lastName: "----"
     },
     reducers:{
         update:(state,action) =>{
-            state.firstName = action.payload
-            state.lastName = action.payload
+            state.firstName = action.payload.firstName
+            state.lastName = action.payload.lastName
         }
     }
     

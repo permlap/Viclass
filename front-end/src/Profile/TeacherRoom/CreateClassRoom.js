@@ -70,6 +70,7 @@ function handleClickToId(id){
 
  function ClickToSummit(event){
     event.preventDefault()
+    
 
   try{
  axios.post("http://localhost:3001/class",

@@ -7,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { Avatar } from '@mui/material';
 import axios from 'axios';
-
+import { useSelector } from 'react-redux';
 
 
 
@@ -16,20 +16,12 @@ export default  function NevbarClassIndex() {
   const classId = JSON.parse(window.localStorage.getItem('classId'))
   const [anchorEl, setAnchorEl] = useState(null);
   const token = localStorage.getItem("access_token")
-  const [userData,setUserData] = useState(null)
   const [classData,setClassData] =useState(null)
-
+  const UserfirstName = useSelector((state)=> state.user.firstName)
+  const UserLastName = useSelector((state)=> state.user.lastName)
   
 
     useEffect(()=>{
-   axios.get('http://localhost:3001/user/me', {
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  }).then((response) =>{
-    setUserData(response.data)
-    
-  })
 
   axios.get(`http://localhost:3001/class/${classId}`,{
       headers:{
@@ -42,10 +34,7 @@ export default  function NevbarClassIndex() {
 
     },[])
 
- if(!userData){
-   return null 
-   
- }
+ 
  if(!classData){
    return null
  }
@@ -82,7 +71,7 @@ export default  function NevbarClassIndex() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
         
           </Typography>
-                <div className="mr-6">Enjoy teaching!</div> {userData.firstName}  {userData.lastName}
+                <div className="mr-6">Enjoy teaching!</div> {UserfirstName}  {UserLastName}
             <div>
               <IconButton
                 size="large"

@@ -11,7 +11,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
-
+import { update } from '../../Redux/UserSlice';
+import {useDispatch} from "react-redux"
 
 
 function Copyright(props) {
@@ -33,6 +34,7 @@ function Copyright(props) {
 function AddUserInfo() {
 
   const token = localStorage.getItem("access_token")
+  
 
     const [userData, setUserData] = useState({
         firstName:"",

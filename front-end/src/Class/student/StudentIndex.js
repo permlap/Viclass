@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import AddIcon from '@mui/icons-material/Add';
 import RenderStudent from './RenderStudent';
 import axios from 'axios';
+
 function StudentIndex() {
   const token = localStorage.getItem("access_token")
   const classId = JSON.parse(window.localStorage.getItem('classId'))
@@ -13,7 +14,7 @@ function StudentIndex() {
     numberId:""
 })
 
-
+ 
   function clickToCreateStudent(){
     setOpen(!open)
   }
@@ -25,7 +26,7 @@ function StudentIndex() {
         }
       }).then((response)=>{
         setGetStudentData(response.data)   
-     console.log(getStudentData)
+    
    })
   },[studentData])
 
@@ -72,6 +73,7 @@ function StudentIndex() {
         }
         ).then((response) =>{
             setStudentData(response.data)
+      
             setOpen(!open)
             
         })
