@@ -7,35 +7,32 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { Avatar } from '@mui/material';
 import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
-import { update } from '../Redux/UserSlice';
 
 
 
 
-export default  function Nevbar() {
+export default  function Nevbar(prop) {
+  
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const token = localStorage.getItem("access_token")
   const [userData,setUserData] = React.useState(null)
-  const dispatch = useDispatch()
-  const UserfirstName = useSelector((state)=> state.user.firstName)
-  const UserLastName = useSelector((state)=> state.user.lastName)
+ 
+    React.useEffect(()=>{
 
-  console.log(UserLastName)
-  React.useEffect(()=>{
+ 
    axios.get('http://localhost:3001/user/me', {
     headers: {
       Authorization: `Bearer ${token}`
     }
   }).then((response) =>{
     setUserData(response.data)
-    dispatch(update(response.data))
-   
     
   })
 
  },[])
+
+
 
  if(!userData){
    return null 
@@ -74,7 +71,7 @@ export default  function Nevbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
         
           </Typography>
-                <div className="mr-6">welcome back!</div> {UserfirstName}  {UserLastName}
+                <div className="mr-6">welcome back!</div> {userData.firstName}  {userData.lastName}
             <div>
               <IconButton
                 size="large"

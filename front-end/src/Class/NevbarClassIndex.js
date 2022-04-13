@@ -17,12 +17,9 @@ export default  function NevbarClassIndex() {
   const [anchorEl, setAnchorEl] = useState(null);
   const token = localStorage.getItem("access_token")
   const [classData,setClassData] =useState(null)
-  const UserfirstName = useSelector((state)=> state.user.firstName)
-  const UserLastName = useSelector((state)=> state.user.lastName)
   
 
-    useEffect(()=>{
-
+  useEffect(()=>{
   axios.get(`http://localhost:3001/class/${classId}`,{
       headers:{
         Authorization: `Bearer ${token}`
@@ -71,7 +68,7 @@ export default  function NevbarClassIndex() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
         
           </Typography>
-                <div className="mr-6">Enjoy teaching!</div> {UserfirstName}  {UserLastName}
+                <div className="mr-6">Enjoy teaching!</div> 
             <div>
               <IconButton
                 size="large"
