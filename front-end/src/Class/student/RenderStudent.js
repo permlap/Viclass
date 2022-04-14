@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 function RenderStudent(prop) {
-  const RandomBg = Math.floor(Math.random() * 10)
+
 
   return (
    
@@ -12,6 +12,7 @@ function RenderStudent(prop) {
             </button>
             <div className="text-center mt-1"> 
             {prop.firstName}  {prop.lastName}
+         
             </div>
         </li>
    

@@ -10,13 +10,15 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 
 
-
 export default  function NevbarClassIndex() {
  
   const classId = JSON.parse(window.localStorage.getItem('classId'))
   const [anchorEl, setAnchorEl] = useState(null);
   const token = localStorage.getItem("access_token")
   const [classData,setClassData] =useState(null)
+  const firstName = useSelector((state) => state.user.userInfo.firstName);
+  const lastName = useSelector((state) => state.user.userInfo.lastName);
+
   
 
   useEffect(()=>{
@@ -27,6 +29,7 @@ export default  function NevbarClassIndex() {
   }).then((response) =>{
       setClassData(response.data)
       console.log(classData)
+   
   })
 
     },[])
@@ -68,7 +71,7 @@ export default  function NevbarClassIndex() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
         
           </Typography>
-                <div className="mr-6">Enjoy teaching!</div> 
+                <div className="mr-6">Enjoy teaching! {firstName} {lastName} </div> 
             <div>
               <IconButton
                 size="large"

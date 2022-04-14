@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { GrAdd } from "react-icons/gr";
 import RenderClassRoom from './RenderClassRoom';
-
+import {useSelector} from "react-redux"
 
 function CreateClassRoom() {
     const token = localStorage.getItem("access_token"); 
@@ -12,6 +12,7 @@ function CreateClassRoom() {
       classTitle:"",
       classLevel:"",
     })
+    const firstName = useSelector((state) => state.user.userInfo.firstName);
 
  function handleClick(){
      setOpen(!open)

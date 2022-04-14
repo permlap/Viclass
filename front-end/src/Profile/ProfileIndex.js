@@ -40,7 +40,7 @@ function Profile() {
     <div>
       <Nevbar/>
       <CreateClassRoom/>
-     
+       
     </div>
   )
 }

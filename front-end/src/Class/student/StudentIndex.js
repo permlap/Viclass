@@ -8,6 +8,7 @@ function StudentIndex() {
   const classId = JSON.parse(window.localStorage.getItem('classId'))
   const[open,setOpen] = useState(false)
   const[getStudentData,setGetStudentData] =useState(null)
+
   const [studentData,setStudentData] = useState({
     firstName:"",
     lastName:"",
@@ -93,7 +94,7 @@ function StudentIndex() {
             <AddIcon sx={{ fontSize: 80 }}/> 
             </button>
             <div className="text-center mt-1"> 
-            Create you student
+            Create you student 
             </div>
         </li>
         
