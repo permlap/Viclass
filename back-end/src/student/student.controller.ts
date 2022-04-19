@@ -1,6 +1,7 @@
+import { EditStudentDto } from './dto/edit-student.dto';
 import { JwtGuard } from './../auth/guard/jwt.guard';
 import { StudentService } from './student.service';
-import { Controller, Param, Post, ParseUUIDPipe, Body, UseGuards, Get } from '@nestjs/common';
+import { Controller, Param, Post, ParseUUIDPipe, Body, UseGuards, Get, Patch, Delete } from '@nestjs/common';
 import { GetUser } from 'src/auth/decorator';
 import { CreateStudnetDto } from './dto';
 
@@ -24,5 +25,24 @@ export class StudentController {
         @Body() dto:CreateStudnetDto
         ){
             return this.service.CreateStudent(classId,dto,userId)
+    }
+
+    @Patch("edit-student/:classId/:studentId")
+    EditStudent(
+        @GetUser("id") userId:string,
+        @Param("classId", ParseUUIDPipe) classId:string,
+        @Param("studentId", ParseUUIDPipe) studentId:string,
+        @Body() dto:EditStudentDto
+    ){
+        return this.service.EditStudent(userId,classId,dto,studentId)
+    }
+
+    @Delete('delete-student/:classId/:studentId')
+    DeleteStudent(
+        @GetUser("id") userId:string,
+        @Param("classId", ParseUUIDPipe) classId:string,
+        @Param("studentId", ParseUUIDPipe) studentId:string,
+    ){
+        return this.service.DeleteStudent(userId, classId, studentId)
     }
 }

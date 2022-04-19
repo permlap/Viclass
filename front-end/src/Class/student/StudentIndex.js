@@ -27,7 +27,6 @@ function StudentIndex() {
         }
       }).then((response)=>{
         setGetStudentData(response.data)   
-    
    })
   },[studentData])
 
@@ -41,6 +40,7 @@ function StudentIndex() {
         key={list.id}
         firstName={list.firstName}
         lastName={list.lastName}
+        handleClickToDelete = {()=>handleClickToDelete(list.id)}
       />
     )
   })
