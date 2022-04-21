@@ -5,17 +5,14 @@ import DataHeader from "./DataHeader"
 import { FiChevronDown } from "react-icons/fi";
 import Grow from '@mui/material/Grow';
 import { Link as Scroll } from 'react-scroll'
-import {useSelector} from "react-redux"
-
-
-
-
-
+import {useDispatch, useSelector} from "react-redux"
+import { increment } from "../../Redux/counterSlide";
 
 
 
 function Header() {
-
+  const dispatch = useDispatch()
+  const counter = useSelector((state) => state.counter.value)
   const showItem = DataHeader.map((list) =>{
     return(
       <HeaderList
@@ -29,7 +26,8 @@ function Header() {
     <div className="Topic absolute right-0 top-16  sm:top-32 md:top-22 lg:top-32 xl:top-40 bg-white/30 rounded-2xl" >
                   <div id="UP" className="HeadTopic ml-2 uppercase">Vclass room </div>
                   <div className="line"></div>
-                  <div className="TopicDetail ml-6">Join us to create the new era of learning </div>
+                  <div className="TopicDetail ml-6">Join us to create the new era of learning {counter}</div>
+                  <button onClick={() => dispatch(increment())}>+</button>
                   <div className="TopicDetailNarrow drop-shadow-md  mt-6 ml-28  animate-bounce  ">
                         <a href="#"> <Scroll to="ToVisit" smooth={true}><FiChevronDown/></Scroll>
                         </a>
@@ -42,6 +40,9 @@ const [checked, setChecked] = useState(false);
 useEffect(() => {
   setChecked(true);
 }, []);
+
+
+
   return (
      
     <div className="container">
@@ -53,6 +54,7 @@ useEffect(() => {
           {...(checked ? { timeout: 1300 } : {})}
         >
           {icon}
+         
         </Grow>
         <img className="headimage z-0" src="/image/Headimage.png"/> 
       </div>
