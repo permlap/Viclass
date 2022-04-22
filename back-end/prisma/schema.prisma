@@ -54,6 +54,7 @@ model Student {
   lastName  String
   
   numberId  String?
+  score Int?
   
   classId String
   class Class @relation(fields: [classId], references: [id])

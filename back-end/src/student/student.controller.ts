@@ -18,6 +18,15 @@ export class StudentController {
         return this.service.GetStudents(classId,userId)
     }
 
+    @Get("get-studentbyid/:classId/:studentId")
+    GetStudentById(
+        @GetUser("id") userId:string,
+        @Param("classId", ParseUUIDPipe) classId:string,
+        @Param("studentId", ParseUUIDPipe) studentId:string
+        ){
+        return this.service.GetStudentById(classId,userId,studentId)
+    }
+
     @Post("create-student/:id")
     CreateStudent(
         @GetUser("id") userId:string,

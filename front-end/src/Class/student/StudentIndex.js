@@ -2,12 +2,18 @@ import React, { useEffect, useState } from 'react'
 import AddIcon from '@mui/icons-material/Add';
 import RenderStudent from './RenderStudent';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateStudent } from '../../Redux/studentSlide';
 
 function StudentIndex() {
   const token = localStorage.getItem("access_token")
   const classId = JSON.parse(window.localStorage.getItem('classId'))
   const[open,setOpen] = useState(false)
   const[getStudentData,setGetStudentData] =useState(null)
+  const dispatch = useDispatch()
+  const counter = useSelector((state) => state.counter.value)
+
+
 
   const [studentData,setStudentData] = useState({
     firstName:"",
@@ -30,17 +36,30 @@ function StudentIndex() {
    })
   },[studentData])
 
+
+
   if(!getStudentData){
     return null
   }
+  
+  function handleClickToId(id){
+    
+    dispatch(updateStudent(id))
+  }
+
+  
+  
 
   const students = getStudentData.map((list) =>{
+
+  
     return(
       <RenderStudent
         key={list.id}
         firstName={list.firstName}
         lastName={list.lastName}
-
+        handleClickToId ={() =>handleClickToId(list.id)}
+        score = {list.score}
       />
     )
   })
@@ -88,17 +107,18 @@ function StudentIndex() {
 
     
   return (
-    <ul className="z-20 mt-20 ml-10 gap-9 flex padding flex-wrap ">
-        <li className="mt-5 ">
+    <ul className="z-20 mt-20 ml-12 gap-4 flex padding flex-wrap ">
+        <li className="mt-5 ml-60 mr-48 pl-96  pr-96">
             <button onClick={clickToCreateStudent} className="bg-yellow-300  w-32 h-32 rounded-full shadow-md border-4 hover:opacity-50">
             <AddIcon sx={{ fontSize: 80 }}/> 
             </button>
             <div className="text-center mt-1"> 
-            Create you student 
+            Create you team
             </div>
         </li>
-        
+      
             {students}
+     
     
         <li>
                     {open === true &&    <div  class=" ml-96 mt-20 overflow-y-auto overflow-x-hidden fixed right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
@@ -121,8 +141,8 @@ function StudentIndex() {
                                         <input onChange={handleChange} value={studentData.firstName} type="text" name="firstName" id="firstName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Ex: Jonathan" required/>
                                     </div>
                                     <div>
-                                        <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Last name</label>
-                                        <input onChange={handleChange} value={studentData.lastName}  type="text" name="lastName" id="lastName" placeholder="Ex: John" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required/>
+                                        <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Color team</label>
+                                        <input onChange={handleChange} value={studentData.lastName}  type="text" name="lastName" id="lastName" placeholder="Ex: red" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required/>
                                     </div>
                                     <div class="flex justify-between">
                                     </div>

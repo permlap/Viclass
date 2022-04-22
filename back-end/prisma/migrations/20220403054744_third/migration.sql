@@ -8,4 +8,4 @@
 ALTER TABLE "classes" ADD COLUMN     "studentId" TEXT NOT NULL;
 
 -- AddForeignKey
-ALTER TABLE "classes" ADD CONSTRAINT "classes_studentId_fkey" FOREIGN KEY ("studentId") REFERENCES "students"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "classes" ADD CONSTRAINT "classes_studentId_fkey" FOREIGN KEY ("studentId") REFERENCES "students"("id") ON DELETE CASCADE ON UPDATE CASCADE;

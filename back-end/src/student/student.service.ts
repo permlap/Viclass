@@ -17,6 +17,20 @@ export class StudentService {
         return students
     }
 
+    async GetStudentById(classId:string, userId:string, studentId:string){
+        const student = await this.prisma.student.findUnique({
+            where:{
+                id: studentId, 
+            }
+        })
+        console.log(student)
+        if(!student || student.classId !== classId || student.userId !== userId){
+            throw new ForbiddenException("access to the resource denied", "5555" )
+            
+        }
+        return student
+    }
+
 
    async CreateStudent(classId:string,dto:CreateStudnetDto,userId:string){
         const student = await this.prisma.student.create({

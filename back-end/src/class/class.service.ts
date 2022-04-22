@@ -63,6 +63,7 @@ export class ClassService {
             id: classId
         }
     })
+    console.log(MyClass)
     if(!MyClass || MyClass.userId !== userId){
         throw new ForbiddenException("Access to resources denied", "5555");
     }

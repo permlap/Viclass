@@ -6,6 +6,7 @@ const userSlice = createSlice({
         userInfo:{
             firstName:"No value",
             lastName: "No value",
+
         }
     },
     reducers:{

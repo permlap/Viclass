@@ -28,8 +28,8 @@ function ClassIndex() {
   return (
     <div className='h-full'>
         <NevbarClassIndex/>
-        <div className="bg-slate-400 w-full  ">
-              <div className="z-10 w-5/6 ml-32 bg-zinc-200">
+        <div className="z-10 ">
+              <div className="">
                 <StudentIndex/>
                 
             

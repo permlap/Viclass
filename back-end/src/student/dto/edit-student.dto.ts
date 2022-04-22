@@ -1,4 +1,4 @@
-import { IsOptional, IsString } from "class-validator"
+import { IsNumber, IsOptional, IsString } from "class-validator"
 
 export class EditStudentDto {
     @IsOptional()
@@ -12,4 +12,8 @@ export class EditStudentDto {
     @IsOptional()
     @IsString()
     numberId?:string
+    
+    @IsNumber()
+    @IsOptional()
+    score?:number
 }

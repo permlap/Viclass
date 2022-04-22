@@ -1,29 +1,49 @@
 import React, { useState } from 'react'
-
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 function RenderStudent(prop) {
 
   const [open, SetOpen] = useState(false)
+  const [score,setScore] = useState(0)
+
+
+async function ClickPlus(){
+  setScore(score + 1)
+    
+  }
+  
+  function ClickDelete(){
+    setScore(score - 1)
+ 
+
+}
+
+
 
   return (
+    <div>
    
-         <li onClick={() => SetOpen(!open)} className="h-40 mt-5  ">
-              <button className= "bg-cyan-500 w-32 h-32 rounded-full shadow-md border-4 hover:opacity-50 text-6xl">
-              {prop.firstName[0]}
-              </button>
+         <li className="h-80 mt-5 border " >
+            <img onClick={() => SetOpen(!open)} className= "w-32 h-32 bg-fuchsia-200 rounded-full shadow-md border-4 hover:opacity-50 text-6xl" src={`color-bg/${prop.lastName}.png`} />
               <div className="text-center mt-1"> 
               {prop.firstName}  {prop.lastName}
               </div>
 
               {/* Slide down menu */}
-
                 {open === true &&  
-                    <div className=' bg-rose-500 rounded-lg shadow-xl text-center left-82 absolute w-32'>
-                      <div  className='block px-4 py-2 font-extrabold text-white hover:bg-white hover:text-red-500'>Edit</div>
-                      <div  onClick={prop.handleClickToDelete}  className='block px-4 py-2 font-extrabold text-white hover:bg-white hover:text-red-500'>Delete</div>
+                  <div  className="absolute" onClick={prop.handleClickToId}>
+                    <button  onClick={ClickDelete}className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4'> <ArrowBackIosNewIcon/> </button>
+                    <button  onClick={ClickPlus}className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'> <ArrowForwardIosIcon/> </button>
                   </div>
                 }
+
+              <div className="mt-24 ml-14 text-5xl antialiased font-black text-rose-900">
+                {score}
+              </div>
         </li>
+
+    </div>
    
   )
 }

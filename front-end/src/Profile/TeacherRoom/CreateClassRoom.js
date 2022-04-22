@@ -53,6 +53,8 @@ function handleClickToDelete(id){
   })
 }
 
+
+
 function handleClickToId(id){
   localStorage.setItem("classId",JSON.stringify(id))
   console.log(id)
